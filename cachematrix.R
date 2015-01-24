@@ -38,7 +38,7 @@ makeCacheMatrix <- function(x = matrix()){
   else { 
     ##calculating inverse of matrix x
     data <- x$get()
-    m <- inv(data, ...)
+    m <- solve(data, ...)
     x$set_inv(m)
     m 
   }
