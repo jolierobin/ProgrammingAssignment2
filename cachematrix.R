@@ -19,22 +19,22 @@ makeCacheMatrix <- function(x = matrix()){
   get_inv <- function() m 
   
   list (set = set, get=get,
-  set_inv =set_inv
-  get_inv = get_inv)
+        set_inv =set_inv,
+        get_inv = get_inv)
 }
 
-  # Function that returns the inverse of of a matrix. To reduce redundant computing, this function will first check 
-  # whether the answer is already in cache. If so, it will return the cached data instead of computing it again. 
-  cacheSolve <- function(x, ...) {
+# Function that returns the inverse of of a matrix. To reduce redundant computing, this function will first check 
+# whether the answer is already in cache. If so, it will return the cached data instead of computing it again. 
+cacheSolve <- function(x, ...) {
   m <- x$get_inv()
- 
+  
   ##If a inverse matrix is cached, return this. Otherwise compute inverse matrix and return
   if(!is.null(m)){
     message("Getting cached data")
     return(m)
     
   }
-
+  
   else { 
     ##calculating inverse of matrix x
     data <- x$get()
